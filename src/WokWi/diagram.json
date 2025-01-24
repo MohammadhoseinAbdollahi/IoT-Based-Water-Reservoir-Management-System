@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "author": "Mohammadhosein Abdollahi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -38.4, "left": -33.56, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 307.5,
+      "left": -255,
+      "attrs": { "humidity": "20", "temperature": "22.9" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": 209.9, "left": 211, "attrs": {} },
+    { "type": "wokwi-junction", "id": "j1", "top": 33.6, "left": -187.2, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -183.7, "left": -221, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot2:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp:14", "green", [ "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot2:VCC", "esp:3V3", "red", [ "v-508.8", "h-298.4" ] ],
+    [ "esp:VP", "pot2:SIG", "green", [ "h-38.25", "v316.8", "h336" ] ],
+    [ "esp:35", "j1:J", "green", [ "h0" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot1:SIG", "j1:J", "green", [ "v0" ] ],
+    [ "esp:GND.3", "pot1:GND", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
