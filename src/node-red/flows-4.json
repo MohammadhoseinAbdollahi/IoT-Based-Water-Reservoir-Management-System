@@ -1,0 +1,538 @@
+[
+    {
+        "id": "0d5ae8223c75e554",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a813f148c00c46a3",
+        "type": "mqtt in",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "topic": "KarkheDam_Simulation/#",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "8f28ceddd908eaff",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 480,
+        "wires": [
+            [
+                "cbe66afdeea522c1",
+                "55311b9d2f9924ba",
+                "4d1afeb371a5387b"
+            ]
+        ]
+    },
+    {
+        "id": "cbe66afdeea522c1",
+        "type": "debug",
+        "z": "0d5ae8223c75e554",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "55311b9d2f9924ba",
+        "type": "switch",
+        "z": "0d5ae8223c75e554",
+        "name": "Divided Properties",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "KarkheDam_Simulation/temperature",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "KarkheDam_Simulation/humidity",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "KarkheDam_Simulation/waterLevel",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "KarkheDam_Simulation/pH",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "KarkheDam_Simulation/turbidity",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "KarkheDam_Simulation/inflowRate",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "KarkheDam_Simulation/outflowRate",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "KarkheDam_Simulation/floodProbability",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "KarkheDam_Simulation/floodWarning",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 9,
+        "x": 650,
+        "y": 480,
+        "wires": [
+            [
+                "827a56094c188d6c"
+            ],
+            [
+                "550d19b069d89fe0"
+            ],
+            [
+                "2427dfa599ee58b1"
+            ],
+            [
+                "c350a6f54632953a"
+            ],
+            [
+                "bbf50c1239902c32"
+            ],
+            [
+                "c6f7c45ba1b1ddfa"
+            ],
+            [
+                "c2fd5aa6b9067831"
+            ],
+            [
+                "f602a9b8d63cc30f"
+            ],
+            [
+                "f6dfc146ff29c42e"
+            ]
+        ]
+    },
+    {
+        "id": "827a56094c188d6c",
+        "type": "ui_gauge",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "group": "fa2e830566455694",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature (°C)",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1090,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "550d19b069d89fe0",
+        "type": "ui_gauge",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "group": "fa2e830566455694",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity (%)",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1070,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2427dfa599ee58b1",
+        "type": "ui_chart",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "group": "712e8143071a7ef1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Water Level",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "150",
+        "ymax": "350",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1070,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c350a6f54632953a",
+        "type": "ui_gauge",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "group": "fa2e830566455694",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "pH Level",
+        "label": "-",
+        "format": "{{value}}",
+        "min": "7",
+        "max": "8.5",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1060,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "bbf50c1239902c32",
+        "type": "ui_gauge",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "group": "fa2e830566455694",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Turbidity (NTU)",
+        "label": "NTU",
+        "format": "{{value}}",
+        "min": "50",
+        "max": "400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1080,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "c6f7c45ba1b1ddfa",
+        "type": "ui_chart",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "group": "712e8143071a7ef1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Inflow Rate",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "100",
+        "ymax": "500",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1070,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2fd5aa6b9067831",
+        "type": "ui_chart",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "group": "712e8143071a7ef1",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Outflow Rate",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "50",
+        "ymax": "300",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1070,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f602a9b8d63cc30f",
+        "type": "ui_gauge",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "group": "6a1b2fd316e6b2b7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Flood Probability",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1090,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f6dfc146ff29c42e",
+        "type": "ui_text",
+        "z": "0d5ae8223c75e554",
+        "group": "6a1b2fd316e6b2b7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Flood Warning",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": "18",
+        "color": "#000000",
+        "x": 1080,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "4d1afeb371a5387b",
+        "type": "mqtt out",
+        "z": "0d5ae8223c75e554",
+        "name": "",
+        "topic": "test",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8f28ceddd908eaff",
+        "x": 610,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8f28ceddd908eaff",
+        "type": "mqtt-broker",
+        "name": "KarkheDamData",
+        "broker": "9fbc1787c51542aca42e34cc0bb2fbcd.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "11579daf6166399e",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "3",
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "fa2e830566455694",
+        "type": "ui_group",
+        "name": "Environment",
+        "tab": "4d5018938a156426",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "712e8143071a7ef1",
+        "type": "ui_group",
+        "name": "Reservoir",
+        "tab": "4d5018938a156426",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6a1b2fd316e6b2b7",
+        "type": "ui_group",
+        "name": "Warnings",
+        "tab": "4d5018938a156426",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "11579daf6166399e",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "CA_Certificate.crt",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "4d5018938a156426",
+        "type": "ui_tab",
+        "name": "KarkheDam_Simulation",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
