@@ -58,7 +58,7 @@ WiFiClientSecure espClient;
 PubSubClient client(espClient);
 
 bool openDam = false; // Variable to store dam status
-float waterLevel = 250;
+float waterLevel = 220;
 
 void connectToWiFi() {
   Serial.print("Connecting to WiFi");
@@ -128,8 +128,6 @@ void loop() {
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
   float pH = analogRead(PH_PIN) > 0 ? analogRead(PH_PIN) / 4095.0 * 0.7 + 7.5 : random(75, 82) / 10.0;
-
-  // Read turbidity sensor value
   int turbidityRaw = analogRead(TURBIDITY_PIN);
   // Map the raw analog value to NTU (Nephelometric Turbidity Units)
   float turbidity = (float)turbidityRaw / 4095.0 * 400.0; // Scale to a max of 400 NTU
@@ -159,7 +157,7 @@ void loop() {
   waterLevel = fmax(fmin(waterLevel, 280.0f), 160.0f); // Clamp water level between 160 and 280 meters
 
   // Close dam if water level is below 160 meters
-  if (waterLevel <= 160) {
+  if (waterLevel <= 185) {
     openDam = false;
     outflowRate = random(100, 250); // Reset to default outflow rate
   }
