@@ -1,18 +1,17 @@
 # IoT-Based Water Reservoir Management System
 
 ## Overview
-This project aims to develop a cloud-based IoT system to manage a water reservoir, using simulated sensors and edge computation.
+This project aims to develop a cloud-based IoT system for managing a water reservoir using simulated sensors and edge computation.
 
 ## Technologies
-- Node.js (Backend server)
-- Thingworx (IoT platform)
+- Wokwi (Sensor Simulation)
 - Node-red (Flow-based development)
-- Arduino (Sensor integration)
+- React.js (Controlling Dashboard)
 
 ## Milestones
 - [x] Repository Setup
-- [ ] Sensor Simulation
-- [ ] Backend Development
-- [ ] Data Visualization
-- [ ] Testing and Debugging
-- [ ] Final Documentation
+- [x] Sensor Simulation
+- [x] Backend Development
+- [x] Data Visualization
+- [x] Testing and Debugging
+- [x] Final Documentation
