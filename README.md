@@ -15,5 +15,6 @@ This project aims to develop a cloud-based IoT system for managing a water reser
 - [x] Data Visualization
 - [x] Testing and Debugging
 - [x] Final Documentation
-## Collaboration
 
+## Collaboration
+We welcome contributions from the community. Please feel free to open issues, submit pull requests, and engage in discussions to improve this project.
